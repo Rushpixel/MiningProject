@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="endogen"/>
+	<classpathentry kind="src" path="EndoResources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/PaulsCode/CodecWav.jar" sourcepath="/Users/BirdLab2/Desktop/PaulsCode/CodecWav/src"/>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/PaulsCode/LibraryJavaSound.jar"/>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/PaulsCode/LibraryLWJGLOpenAL.jar"/>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/PaulsCode/SoundSystem.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://www.paulscode.com/docs/SoundSystem/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/jar/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/jar/lwjgl.jar" sourcepath="/Users/BirdLab2/Desktop/lwjgl-2.9.1/javadoc.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/BirdLab2/Desktop/lwjgl-2.9.1/javadoc.zip!/javadoc"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Users/BirdLab2/Desktop/lwjgl-2.9.1/native/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/BirdLab2/Desktop/lwjgl-2.9.1/slick/lib/slick.jar"/>
+	<classpathentry kind="src" path="Resources"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
