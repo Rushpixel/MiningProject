@@ -35,6 +35,11 @@ public class Entity {
 		this.rotfrict = 1;
 	}
 	
+	@Override
+	public Entity clone(){
+		return new Entity(pos.clone(), mom.clone(), mass, hasGravity, friction, rotation, rotvel, rotfrict);
+	}
+	
 	public void step(int numSteps){
 		while(numSteps > 0){
 			numSteps--;

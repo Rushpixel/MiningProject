@@ -26,7 +26,7 @@ public class PlayerShip {
 
 	public Entity entity;
 	public Collidor2d col;
-	public float thrust = 150;
+	public float thrust = 30;
 	public Vertex2f Reticle;
 	public float yRot = 90;
 	public float DyRot = 0;
@@ -52,8 +52,8 @@ public class PlayerShip {
 		ammo.update();
 		
 		if(HP <= 0){
-			SceneGraph.Restart();
-			SceneGraph.NewGame();
+			//SceneGraph.Restart();
+			//SceneGraph.NewGame();
 		}
 	}
 
@@ -115,6 +115,7 @@ public class PlayerShip {
 		lastFrame = frame;
 	}
 
+	public int stepsSince = 12;
 	public void render() {
 		hud.render();
 		GL11.glPushMatrix();
@@ -125,11 +126,19 @@ public class PlayerShip {
 
 		float retDis = MathUtil.distance(Reticle.getX(), Reticle.getY(), entity.pos.getX(), entity.pos.getY());
 		float retDir = MathUtil.direction(entity.pos.getX(), entity.pos.getY(), Reticle.getX(), Reticle.getY()) + 180;
-		float jumpSize = 32;
 		Render2d.squareRot(MathUtil.getXSpeed(retDir, retDis) + x, MathUtil.getYSpeed(retDir, retDis) + y, -4, -4, 4, 4, 0, new float[] { 1, 1, 1, 1 }, Game.Assets.RETICLE2);
-		while (retDis > jumpSize) {
-			retDis -= jumpSize;
-			Render2d.squareRot(MathUtil.getXSpeed(retDir, retDis) + x, MathUtil.getYSpeed(retDir, retDis) + y, -4, -4.5f, 4, 3.5f, 0, new float[] { 1, 1, 1, 1 }, Game.Assets.RETICLE3);
+	
+		Entity temp = entity.clone();
+		int StepRate = 30;
+		int numSteps = 12;
+		temp.step(stepsSince);
+		Render2d.squareRot(temp.pos.getX(), temp.pos.getY(), -4, -4.5f, 4, 3.5f, 0, new float[] { 1, 1, 1, 1 }, Game.Assets.RETICLE3);
+		stepsSince--;
+		if(stepsSince == 0) stepsSince = StepRate;
+		while (numSteps > 0) {
+			numSteps--;
+			temp.step(StepRate);
+			Render2d.squareRot(temp.pos.getX(), temp.pos.getY(), -4, -4.5f, 4, 3.5f, 0, new float[] { 1, 1, 1, 1 }, Game.Assets.RETICLE3);
 		}
 
 		// GL11.glPushMatrix();

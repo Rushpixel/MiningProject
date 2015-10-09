@@ -13,15 +13,15 @@ public class Enemy_Slug extends Enemy_Preset{
 	
 	public Enemy_Slug(Vertex2f pos, Fleet fleet){
 		super();
-		Entity e = new Entity(pos, new Vertex2f(0,0), 500, true, .95f, 0, 0, 1);
+		Entity e = new Entity(pos, new Vertex2f(0,0), 500, true, 1f, 0, 0, 1);
 		body = Collidor2d.makePoly(this, pos, 0, polygon);
-		super.Set(100, 150, Faction.Alien, fleet, 1, e, body);
+		super.Set(100, 5, Faction.Alien, fleet, 1, e, body);
 		frame = 12;
 	}
 
 	@Override
 	public void update() {
-		if(super.playerCollisions(50)) return;
+		//if(super.playerCollisions(50)) return;
 		super.lookAhead();
 		Vertex2f v = new Vertex2f(0, 0);
 		
@@ -37,11 +37,25 @@ public class Enemy_Slug extends Enemy_Preset{
 		turret.update();
 		super.testHP();
 	}
-
+	
+	public int stepsSince = 12;
 	@Override
 	public void render() {
 		super.renderSprite(Game.Assets.ENEMY_SLUG, 4, 32);
 		CollidorUtil.renderCollidor(body, true, true, true, true);
+		
+		Entity temp = entity.clone();
+		int StepRate = 30;
+		int numSteps = 12;
+		temp.step(stepsSince);
+		Render2d.squareRot(temp.pos.getX(), temp.pos.getY(), -4, -4.5f, 4, 3.5f, 0, new float[] { 1, 1, 1, 1 }, Game.Assets.RETICLE3);
+		stepsSince--;
+		if(stepsSince == 0) stepsSince = StepRate;
+		while (numSteps > 0) {
+			numSteps--;
+			temp.step(StepRate);
+			Render2d.squareRot(temp.pos.getX(), temp.pos.getY(), -4, -4.5f, 4, 3.5f, 0, new float[] { 1, 1, 1, 1 }, Game.Assets.RETICLE3);
+		}
 	}
 	
 	@Override

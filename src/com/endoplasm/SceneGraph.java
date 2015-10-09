@@ -86,10 +86,10 @@ public class SceneGraph {
 	public static void gen(){
 		Fleet f = new Fleet(Faction.Alien);
 		
-		new Enemy_Sniper(new Vertex2f(500, 50), f);
-		new Enemy_Sniper(new Vertex2f(500, 50), f);
+//		new Enemy_Sniper(new Vertex2f(500, 50), f);
+//		new Enemy_Sniper(new Vertex2f(500, 50), f);
 		
-		new Enemy_Spam(new Vertex2f(500, 50), f);
+//		new Enemy_Spam(new Vertex2f(500, 50), f);
 //		new Enemy_Spam(new Vertex2f(500, 50), f);
 //		new Enemy_Spam(new Vertex2f(500, 50), f);
 //		
